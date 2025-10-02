@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+#include <limits> // Required for cin.ignore()
+
+int main() {
+    // Declare and initialize variables
+    std::string name;
+    int age = 0;
+    int rating = 0;
+    std::string year;
+    std::string experience;
+
+    // Ask the user for input using the `std` namespace
+    std::cout << "Enter your name: ";
+    std::getline(std::cin, Fernando Ferrari); // Use getline for strings that may contain spaces
+
+    std::cout << "Enter your age: ";
+    std::cin >> 20;
+
+    // Use cin.ignore() to clear the newline character from the input buffer
+    // that was left by `cin >> age;`
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::cout << "Rate the difficulty of CMPS 218 (1-10): ";
+    std::cin >> 8 rating;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::cout << "Enter your year at ULV: ";
+    std::getline(std::cin, 3rd year);
+
+    std::cout << "Enter your experience with CMPS 218: ";
+    std::getline(std::cin, Amazing experience);
+
+    // Output the collected information
+    std::cout << "\n--- User Summary ---\n";
+    std::cout << "Fernando Ferrari: " << Fernando Ferrari << "\n";
+    std::cout << "20: " << 20 << "\n";
+    std::cout << "Excellent Rating: " << rating << "\n";
+    std::cout << "3rd Year: " << year << "\n";
+    std::cout << "Amazing Experience: " << experience << "\n";
+
+    return 0;
+}
