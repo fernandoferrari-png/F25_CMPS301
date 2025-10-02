@@ -1,0 +1,63 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	// Define constants for a 24-hour day in minutes
+	const int hours_in_day = 24;
+	const int minutes_in_hour = 60;
+	const int total_minutes = hours_in_day * minutes_in_hour;
+
+	// Variables for time spent in each category (in minutes)
+	// You can change these values to simulate a different day
+	int sleep_time = 480;      // 8 hours
+	int classes_time = 240;    // 4 hours
+	int homework_time = 180;   // 3 hours
+	int meals_time = 90;       // 1.5 hours (3 meals at 30 min each)
+	int gym_time = 60;         // 1 hour
+	int fun_time = 150;        // 2.5 hours
+	int commute_time = 60;     // 1 hour
+	int chores_time = 30;      // 0.5 hours
+
+	// More variables to keep track of totals
+	int total_productive_time;
+	int total_leisure_time;
+	int total_allotted_time;
+	int remaining_unplanned_time;
+
+	// Calculate total time for each category
+	total_productive_time = classes_time + homework_time + gym_time;
+	total_leisure_time = fun_time + meals_time;
+	total_allotted_time = sleep_time + total_productive_time + total_leisure_time + commute_time + chores_time;
+	remaining_unplanned_time = total_minutes - total_allotted_time;
+
+	// Display the results
+	cout << "------------------------------------------" << endl;
+	cout << "             Daily Time Breakdown         " << endl;
+	cout << "------------------------------------------" << endl;
+	cout << "Total minutes in a day: \t" << total_minutes << endl;
+	cout << endl;
+
+	// Display time spent per activity
+	cout << "--- Activity Details ---" << endl;
+	cout << "Sleep: \t\t\t\t" << sleep_time << " minutes" << endl;
+	cout << "Classes: \t\t\t" << classes_time << " minutes" << endl;
+	cout << "Homework/Study: \t\t" << homework_time << " minutes" << endl;
+	cout << "Meals: \t\t\t\t" << meals_time << " minutes" << endl;
+	cout << "Gym/Exercise: \t\t\t" << gym_time << " minutes" << endl;
+	cout << "Fun (Games, Social Media): \t" << fun_time << " minutes" << endl;
+	cout << "Commuting: \t\t\t" << commute_time << " minutes" << endl;
+	cout << "Chores: \t\t\t" << chores_time << " minutes" << endl;
+	cout << endl;
+
+	// Display summary calculations
+	cout << "--- Summary ---" << endl;
+	cout << "Total productive time: \t\t" << total_productive_time << " minutes" << endl;
+	cout << "Total leisure time: \t\t" << total_leisure_time << " minutes" << endl;
+	cout << "Total allotted time: \t\t" << total_allotted_time << " minutes" << endl;
+	cout << "Remaining unplanned time: \t" << remaining_unplanned_time << " minutes" << endl;
+
+	cout << "------------------------------------------" << endl;
+
+	return 0;
+}
