@@ -1,0 +1,365 @@
+Problem #1
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+int main() {
+    // Variable declarations for the tech items and accessory
+    std::string item1Name, item2Name, accessoryName;
+    double item1Price, item2Price, accessoryPrice;
+    
+    // Display the welcome message
+    std::cout << "****** Welcome to the Tech Store Purchase Invoice Generator ******" << std::endl;
+    std::cout << std::endl;
+    
+    // 1. Prompt the user for item information
+    std::cout << "Enter name of Tech Item #1: ";
+    std::getline(std::cin, item1Name);
+    std::cout << "Enter price: ";
+    std::cin >> item1Price;
+    
+    std::cin.ignore(); // Clear the input buffer
+    
+    std::cout << "Enter name of Tech Item #2: ";
+    std::getline(std::cin, item2Name);
+    std::cout << "Enter price: ";
+    std::cin >> item2Price;
+
+    std::cin.ignore(); // Clear the input buffer
+
+    std::cout << "Enter name of Accessory: ";
+    std::getline(std::cin, accessoryName);
+    std::cout << "Enter price: ";
+    std::cin >> accessoryPrice;
+    
+    // 2. Perform calculations
+    const double salesTaxRate = 0.095;
+    double subtotal = item1Price + item2Price + accessoryPrice;
+    double salesTax = subtotal * salesTaxRate;
+    double total = subtotal + salesTax;
+    
+    // 3. Display the formatted invoice
+    std::cout << std::endl;
+    std::cout << "=========== TECH STORE INVOICE ===========" << std::endl;
+    
+    // Use iomanip to format the prices
+    std::cout << std::fixed << std::setprecision(2);
+    
+    std::cout << std::left << std::setw(25) << item1Name << "$" << std::right << std::setw(8) << item1Price << std::endl;
+    std::cout << std::left << std::setw(25) << item2Name << "$" << std::right << std::setw(8) << item2Price << std::endl;
+    std::cout << std::left << std::setw(25) << accessoryName << "$" << std::right << std::setw(8) << accessoryPrice << std::endl;
+    
+    std::cout << "--------------------------------------------" << std::endl;
+    
+    std::cout << std::left << std::setw(25) << "Subtotal" << "$" << std::right << std::setw(8) << subtotal << std::endl;
+    std::cout << std::left << std::setw(25) << "Sales Tax (9.5%)" << "$" << std::right << std::setw(8) << salesTax << std::endl;
+    std::cout << std::left << std::setw(25) << "Total" << "$" << std::right << std::setw(8) << total << std::endl;
+    
+    return 0;
+}
+
+
+
+Problem #2
+
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    // Declare variables
+    double distA, distB, distC;
+    double fuelEfficiency; // MPG
+    double gasPrice;
+    double gearWeight;
+    double totalDistance;
+    double fuelCost;
+    double weightFee;
+    double totalTripCost;
+    const double WEIGHT_FEE_PER_POUND_PER_MILE = 0.15;
+
+    // Display welcome message
+    std::cout << "****** Welcome to the Photography Trip Planner ******" << std::endl << std::endl;
+
+    // 1. Prompt user for input
+    std::cout << "Miles to Location A: ";
+    std::cin >> distA;
+    std::cout << "Miles to Location B: ";
+    std::cin >> distB;
+    std::cout << "Miles to Location C: ";
+    std::cin >> distC;
+    std::cout << "Fuel efficiency (MPG): ";
+    std::cin >> fuelEfficiency;
+    std::cout << "Gas price per gallon: ";
+    std::cin >> gasPrice;
+    std::cout << "Camera gear weight (lbs): ";
+    std::cin >> gearWeight;
+    std::cout << std::endl;
+
+    // 2. Perform calculations
+    totalDistance = distA + distB + distC;
+    fuelCost = (totalDistance / fuelEfficiency) * gasPrice;
+    weightFee = (gearWeight * totalDistance) * WEIGHT_FEE_PER_POUND_PER_MILE;
+    totalTripCost = fuelCost + weightFee;
+
+    // 3. Display formatted results
+    // Set up formatting for currency and decimals
+    std::cout << std::fixed << std::setprecision(2);
+    
+    std::cout << "=========== PHOTOGRAPHY TRIP PLANNER ===========" << std::endl;
+    std::cout << "Trip Details:" << std::endl;
+    std::cout << "Total Distance: " << totalDistance << " miles" << std::endl;
+    std::cout << "Fuel Efficiency: " << fuelEfficiency << " MPG" << std::endl;
+    std::cout << "Gas Price: $" << gasPrice << std::endl;
+    std::cout << "Camera Gear Weight: " << gearWeight << " lbs" << std::endl;
+    std::cout << "-----------------------------------------------" << std::endl;
+    std::cout << "Cost Breakdown:" << std::endl;
+    std::cout << "Fuel Cost: $" << fuelCost << std::endl;
+    std::cout << "Weight Fee: $" << weightFee << std::endl;
+    std::cout << "-----------------------------------------------" << std::endl;
+    std::cout << "Total Trip Cost: $" << totalTripCost << std::endl;
+    std::cout << "===============================================" << std::endl;
+
+    return 0;
+}
+
+
+Problem #3
+
+#include <iostream>
+#include <string>
+#include <iomanip> // Required for std::fixed and std::setprecision
+
+int main() {
+    // Welcome message
+    std::cout << "****** Welcome to the Freelance Invoice Generator ******" << std::endl;
+
+    // Declare variables for client 1
+    std::string client1Name;
+    double client1Hours;
+    double client1Rate;
+    double client1Earnings;
+
+    // Declare variables for client 2
+    std::string client2Name;
+    double client2Hours;
+    double client2Rate;
+    double client2Earnings;
+
+    // Declare variables for client 3
+    std::string client3Name;
+    double client3Hours;
+    double client3Rate;
+    double client3Earnings;
+
+    double totalIncome;
+
+    // Get input for client 1
+    std::cout << "\nClient 1 Name: ";
+    std::getline(std::cin, client1Name);
+    std::cout << "Hours Worked: ";
+    std::cin >> client1Hours;
+    std::cout << "Hourly Rate: ";
+    std::cin >> client1Rate;
+
+    // Clear the input buffer for the next getline
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    // Get input for client 2
+    std::cout << "\nClient 2 Name: ";
+    std::getline(std::cin, client2Name);
+    std::cout << "Hours Worked: ";
+    std::cin >> client2Hours;
+    std::cout << "Hourly Rate: ";
+    std::cin >> client2Rate;
+
+    // Clear the input buffer
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    // Get input for client 3
+    std::cout << "\nClient 3 Name: ";
+    std::getline(std::cin, client3Name);
+    std::cout << "Hours Worked: ";
+    std::cin >> client3Hours;
+    std::cout << "Hourly Rate: ";
+    std::cin >> client3Rate;
+
+    // Perform calculations
+    client1Earnings = client1Hours * client1Rate;
+    client2Earnings = client2Hours * client2Rate;
+    client3Earnings = client3Hours * client3Rate;
+    totalIncome = client1Earnings + client2Earnings + client3Earnings;
+
+    // Display formatted output
+    std::cout << std::fixed << std::setprecision(2); // Set output to 2 decimal places
+
+    std::cout << "\n****** Invoice Summary ******" << std::endl;
+
+    std::cout << "\nClient: " << client1Name << std::endl;
+    std::cout << "  Hours Worked: " << client1Hours << std::endl;
+    std::cout << "  Hourly Rate: $" << client1Rate << std::endl;
+    std::cout << "  Earnings: $" << client1Earnings << std::endl;
+
+    std::cout << "\nClient: " << client2Name << std::endl;
+    std::cout << "  Hours Worked: " << client2Hours << std::endl;
+    std::cout << "  Hourly Rate: $" << client2Rate << std::endl;
+    std::cout << "  Earnings: $" << client2Earnings << std::endl;
+
+    std::cout << "\nClient: " << client3Name << std::endl;
+    std::cout << "  Hours Worked: " << client3Hours << std::endl;
+    std::cout << "  Hourly Rate: $" << client3Rate << std::endl;
+    std::cout << "  Earnings: $" << client3Earnings << std::endl;
+
+    std::cout << "\nTotal Income from all clients: $" << totalIncome << std::endl;
+
+    return 0;
+}
+
+Problem #4
+
+
+#include <iostream>
+#include <string>
+
+int main() {
+    // Declare string variables to store user input
+    std::string fullName;
+    std::string preferredName;
+    std::string emailAddress;
+    std::string phoneNumber;
+    std::string cityAndState;
+    std::string occupation;
+    std::string companyOrSchool;
+    std::string favoriteHobby;
+    std::string favoriteColor;
+    std::string personalQuote;
+
+    // Display a welcome message
+    std::cout << "****** Welcome to the Guest Profile Generator ******" << std::endl << std::endl;
+
+    // Prompt the user for information using getline()
+    std::cout << "Enter your full name: ";
+    std::getline(std::cin, fullName);
+
+    std::cout << "Enter your preferred name / nickname: ";
+    std::getline(std::cin, preferredName);
+
+    std::cout << "Enter your email address: ";
+    std::getline(std::cin, emailAddress);
+
+    std::cout << "Enter your phone number: ";
+    std::getline(std::cin, phoneNumber);
+
+    std::cout << "Enter your city and state: ";
+    std::getline(std::cin, cityAndState);
+
+    std::cout << "Enter your occupation: ";
+    std::getline(std::cin, occupation);
+
+    std::cout << "Enter your company or school: ";
+    std::getline(std::cin, companyOrSchool);
+
+    std::cout << "Enter your favorite hobby: ";
+    std::getline(std::cin, favoriteHobby);
+
+    std::cout << "Enter your favorite color: ";
+    std::getline(std::cin, favoriteColor);
+
+    std::cout << "Enter a one-line personal quote or motto: ";
+    std::getline(std::cin, personalQuote);
+
+    // Display the formatted profile sheet
+    std::cout << std::endl << "==================================================" << std::endl;
+    std::cout << "                 GUEST PROFILE SHEET                " << std::endl;
+    std::cout << "==================================================" << std::endl;
+    std::cout << "Full Name:            " << fullName << std::endl;
+    std::cout << "Preferred Name:       " << preferredName << std::endl;
+    std::cout << "Email:                " << emailAddress << std::endl;
+    std::cout << "Phone:                " << phoneNumber << std::endl;
+    std::cout << "Location:             " << cityAndState << std::endl;
+    std::cout << "Occupation:           " << occupation << std::endl;
+    std::cout << "Company/School:       " << companyOrSchool << std::endl;
+    std::cout << "Favorite Hobby:       " << favoriteHobby << std::endl;
+    std::cout << "Favorite Color:       " << favoriteColor << std::endl;
+    std::cout << "Personal Quote:       " << personalQuote << std::endl;
+    std::cout << "==================================================" << std::endl;
+
+    return 0;
+}
+
+Problem #5 
+
+#include <iostream>
+#include <string>
+#include <iomanip> // For std::fixed and std::setprecision
+
+int main() {
+    // Variable declarations to store user input
+    std::string customerName;
+    std::string movieTitle;
+    std::string showtime;
+    int theaterNumber;
+    std::string seatNumber;
+    int numberOfTickets;
+    double ticketPrice;
+    std::string theaterLocation;
+
+    // Display a welcome message
+    std::cout << "****** Welcome to Cinemagic Booking System ******\n\n";
+
+    // --- Collect user information ---
+    std::cout << "Enter customer name: ";
+    std::getline(std::cin, customerName); // Use getline for full name with spaces
+
+    std::cout << "Enter movie title: ";
+    std::getline(std::cin, movieTitle); // Use getline for movie title with spaces
+
+    std::cout << "Enter showtime (e.g., 7:30 PM): ";
+    std::getline(std::cin, showtime);
+
+    std::cout << "Enter theater number: ";
+    std::cin >> theaterNumber;
+
+    // Clear the input buffer after reading a number
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::cout << "Enter seat number (e.g., B12): ";
+    std::getline(std::cin, seatNumber);
+
+    std::cout << "Enter number of tickets: ";
+    std::cin >> numberOfTickets;
+
+    std::cout << "Enter ticket price (per person): ";
+    std::cin >> ticketPrice;
+
+    // Clear the input buffer again after reading a number
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::cout << "Enter theater location: ";
+    std::getline(std::cin, theaterLocation);
+
+    // --- Calculate total cost ---
+    double totalCost = numberOfTickets * ticketPrice;
+
+    // --- Display formatted confirmation receipt ---
+    std::cout << "\n\n**************************************************\n";
+    std::cout << "                BOOKING CONFIRMATION             \n";
+    std::cout << "**************************************************\n";
+
+    // Use std::left and std::setw to align text
+    std::cout << std::left << std::setw(20) << "Customer Name:" << customerName << "\n";
+    std::cout << std::left << std::setw(20) << "Movie Title:" << movieTitle << "\n";
+    std::cout << std::left << std::setw(20) << "Showtime:" << showtime << "\n";
+    std::cout << std::left << std::setw(20) << "Theater Number:" << theaterNumber << "\n";
+    std::cout << std::left << std::setw(20) << "Seat Number:" << seatNumber << "\n";
+    std::cout << std::left << std::setw(20) << "Tickets Booked:" << numberOfTickets << "\n";
+    
+    // Format the price to two decimal places
+    std::cout << std::left << std::setw(20) << "Price/Ticket:" << std::fixed << std::setprecision(2) << ticketPrice << "\n";
+    std::cout << std::left << std::setw(20) << "Total Cost:" << totalCost << "\n";
+    std::cout << std::left << std::setw(20) << "Location:" << theaterLocation << "\n";
+
+    std::cout << "**************************************************\n";
+
+    return 0;
+}
