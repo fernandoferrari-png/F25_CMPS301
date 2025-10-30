@@ -1,0 +1,117 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath> // For std::max
+
+int main() {
+    // 1. Display Welcome Message
+    std::cout << "****** Welcome to the Car Rental Cost Estimator ******" << std::endl;
+    std::cout << std::endl;
+
+    // 2. Prompt user for input
+    int rentalDays;
+    double dailyRentalRate, insurancePerDay, milesDriven, mileageAllowancePerDay, overMileageChargePerMile;
+
+    std::cout << "Enter number of rental days: ";
+    std::cin >> rentalDays;
+
+    std::cout << "Enter daily rental rate ($): ";
+    std::cin >> dailyRentalRate;
+
+    std::cout << "Enter insurance per day ($): ";
+    std::cin >> insurancePerDay;
+
+    std::cout << "Enter total miles driven: ";
+    std::cin >> milesDriven;
+
+    std::cout << "Enter mileage allowance per day: ";
+    std::cin >> mileageAllowancePerDay;
+
+    std::cout << "Enter over-mileage charge per mile ($): ";
+    std::cin >> overMileageChargePerMile;
+
+    std::cout << std::endl;
+
+    // 3. Perform calculations
+    double baseCost = rentalDays * dailyRentalRate;
+    double insuranceCost = rentalDays * insurancePerDay;
+    double mileageLimit = rentalDays * mileageAllowancePerDay;
+    double overMileageCost = 0.0;
+
+    // Calculate over-mileage cost if applicable
+    if (milesDriven > mileageLimit) {
+        double excessMiles = milesDriven - mileageLimit;
+        overMileageCost = excessMiles * overMileageChargePerMile;
+    }
+
+    double totalCost = baseCost + insuranceCost + overMileageCost;
+
+    // 4. Display results
+    std::cout << "****** Rental Cost Summary ******" << std::endl;
+    std::cout << std::fixed << std::setprecision(2); // Set output to 2 decimal places for currency
+
+    std::cout << "Base Cost: $" << baseCost << std::endl;
+    std::cout << "Insurance Cost: $" << insuranceCost << std::endl;
+    std::cout << "Mileage Limit: " << mileageLimit << " miles" << std::endl;
+
+    if (overMileageCost > 0) {
+        std::cout << "Over-Mileage Cost: $" << overMileageCost << std::endl;
+    }
+
+    std::cout << "--------------------------------" << std::endl;
+    std::cout << "Total Estimated Cost: $" << totalCost << std::endl;
+    std::cout << "********************************" << std::endl;
+
+    return 0;
+}
+
+
+2.)
+#include <iostream> // Required for input/output operations
+#include <iomanip>  // Required for output formatting (setprecision, fixed)
+
+int main() {
+    // Display welcome message
+    std::cout << "****** Welcome to the Monthly Budget & Savings Planner ******" << std::endl;
+
+    // Declare variables to store user input
+    double monthlyIncome;
+    double rentMortgageCost;
+    double utilitiesCost;
+    double groceriesCost;
+    double transportationCost;
+    double desiredSavingsGoalPercentage;
+
+    // Prompt user for input
+    std::cout << "Enter your monthly income ($): ";
+    std::cin >> monthlyIncome;
+
+    std::cout << "Enter your rent or mortgage cost ($): ";
+    std::cin >> rentMortgageCost;
+
+    std::cout << "Enter your utilities cost ($): ";
+    std::cin >> utilitiesCost;
+
+    std::cout << "Enter your groceries cost ($): ";
+    std::cin >> groceriesCost;
+
+    std::cout << "Enter your transportation cost ($): ";
+    std::cin >> transportationCost;
+
+    std::cout << "Enter your desired savings goal (% of income): ";
+    std::cin >> desiredSavingsGoalPercentage;
+
+    // Perform calculations
+    double totalExpenses = rentMortgageCost + utilitiesCost + groceriesCost + transportationCost;
+    double savingsGoalAmount = (desiredSavingsGoalPercentage / 100.0) * monthlyIncome;
+    double remainingBalance = monthlyIncome - totalExpenses - savingsGoalAmount;
+
+    // Display the results
+    std::cout << std::fixed << std::setprecision(2); // Format output to two decimal places
+    std::cout << "\n--- Budget Summary ---" << std::endl;
+    std::cout << "Monthly Income: $" << monthlyIncome << std::endl;
+    std::cout << "Total Expenses: $" << totalExpenses << std::endl;
+    std::cout << "Savings Goal: $" << savingsGoalAmount << std::endl;
+    std::cout << "Remaining Balance: $" << remainingBalance << std::endl;
+
+    return 0; // Indicate successful program execution
+}
