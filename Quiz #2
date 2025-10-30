@@ -1,0 +1,46 @@
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    // 1. Display the welcome message
+    std::cout << "****** Welcome to the Coffee Shop Order Calculator ******\n";
+
+    // 2. Define coffee prices as constants
+    const double SMALL_PRICE = 2.25;
+    const double MEDIUM_PRICE = 3.00;
+    const double LARGE_PRICE = 3.75;
+
+    // 3. Declare variables for user input
+    int smallCount = 0;
+    int mediumCount = 0;
+    int largeCount = 0;
+    double taxRate = 0.0;
+
+    // 4. Prompt the user for input
+    std::cout << "Enter number of small coffees: ";
+    std::cin >> smallCount;
+
+    std::cout << "Enter number of medium coffees: ";
+    std::cin >> mediumCount;
+
+    std::cout << "Enter number of large coffees: ";
+    std::cin >> largeCount;
+
+    std::cout << "Enter tax rate (%): ";
+    std::cin >> taxRate;
+
+    // 5. Perform calculations
+    double subtotal = (smallCount * SMALL_PRICE) + (mediumCount * MEDIUM_PRICE) + (largeCount * LARGE_PRICE);
+    double taxAmount = (taxRate / 100.0) * subtotal;
+    double total = subtotal + taxAmount;
+
+    // 6. Display the results formatted as currency
+    // The iomanip library is used here for currency formatting
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << "\n--- Order Summary ---\n";
+    std::cout << "Subtotal: $" << subtotal << "\n";
+    std::cout << "Tax Amount: $" << taxAmount << "\n";
+    std::cout << "Total: $" << total << "\n";
+
+    return 0;
+}
