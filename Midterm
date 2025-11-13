@@ -1,0 +1,198 @@
+#include <iostream>
+#include <string>
+#include <iomanip> // For std::fixed and std::setprecision
+
+int main() {
+    // Required Features 1: Prompt the user for input
+    std::cout << "****** Welcome to the Tech Store Invoice Calculator ******" << std::endl;
+
+    std::string customerName;
+    std::cout << "Enter customer name: ";
+    std::getline(std::cin, customerName); // Use getline for names with spaces
+
+    int numberOfItems;
+    std::cout << "Enter number of items: ";
+    std::cin >> numberOfItems;
+
+    double pricePerItem;
+    std::cout << "Enter price per item: ";
+    std::cin >> pricePerItem;
+
+    char isMemberChar;
+    std::cout << "Are you a store member (Y/N)? ";
+    std::cin >> isMemberChar;
+    bool isMember = (isMemberChar == 'Y' || isMemberChar == 'y');
+
+    // Required Features 2: Perform calculations
+    double subtotal = pricePerItem * numberOfItems;
+    double discount = 0.0;
+
+    // Apply main discount based on subtotal
+    if (subtotal > 500.0) {
+        discount = subtotal * 0.10; // 10% discount
+    } else if (subtotal > 300.0) {
+        discount = subtotal * 0.05; // 5% discount
+    }
+
+    double discountedTotal = subtotal - discount;
+
+    // Apply additional member discount if applicable
+    if (isMember) {
+        discountedTotal -= (discountedTotal * 0.05); // Additional 5% on discounted total
+    }
+
+    double finalTotal = discountedTotal;
+
+    // Output the invoice details
+    std::cout << "==============" << std::endl;
+    std::cout << "Customer Name: " << customerName << std::endl;
+    std::cout << "Subtotal: $" << std::fixed << std::setprecision(2) << subtotal << std::endl;
+    std::cout << "Total Discount Applied: $" << std::fixed << std::setprecision(2) << (subtotal - finalTotal) << std::endl;
+    std::cout << "Final Total: $" << std::fixed << std::setprecision(2) << finalTotal << std::endl;
+    std::cout << "==============" << std::endl;
+
+    return 0;
+}
+
+
+2.)
+
+def get_student_info():
+    """Prompts user for student details and returns them."""
+    print("****** Welcome to the College Admission Checker ******")
+    name = input("Enter student name: ")
+    while True:
+        try:
+            gpa = float(input("Enter GPA (0.0 - 4.0): "))
+            if 0.0 <= gpa <= 4.0:
+                break
+            else:
+                print("Invalid GPA. Please enter a value between 0.0 and 4.0.")
+        except ValueError:
+            print("Invalid input. Please enter a number for GPA.")
+
+    while True:
+        try:
+            sat = int(input("Enter SAT score (out of 1600): "))
+            if 0 <= sat <= 1600:
+                break
+            else:
+                print("Invalid SAT score. Please enter a value between 0 and 1600.")
+        except ValueError:
+            print("Invalid input. Please enter a whole number for SAT score.")
+
+    while True:
+        extracurriculars = input("Participated in extracurriculars? (Y/N): ").strip().upper()
+        if extracurriculars in ('Y', 'N'):
+            break
+        else:
+            print("Invalid input. Please enter 'Y' or 'N'.")
+    return name, gpa, sat, extracurriculars
+
+def check_admission(gpa, sat, extracurriculars):
+    """Checks admission criteria and returns decision and reason."""
+    # Criteria 1: High GPA & High SAT
+    if gpa >= 3.5 and sat >= 1200:
+        return "ACCEPTED", "Qualified based on high GPA and SAT score."
+    # Criteria 2: Moderate GPA & SAT with Extracurriculars
+    elif gpa >= 3.0 and sat >= 1000 and extracurriculars == 'Y':
+        return "ACCEPTED", "Qualified with moderate scores due to extracurricular participation."
+    # Else: Not eligible
+    else:
+        return "NOT ELIGIBLE", "Does not meet minimum criteria for admission."
+
+def display_result(name, gpa, sat, extracurriculars, decision, reason):
+    """Displays the admission result with clean formatting."""
+    print("\n" + "="*25 + " ADMISSION RESULT " + "="*25)
+    print(f"Student Name: {name}")
+    print(f"GPA: {gpa:.2f}") # Format GPA to 2 decimal places
+    print(f"SAT Score: {sat}")
+    print(f"Extracurriculars: {'Yes' if extracurriculars == 'Y' else 'No'}")
+    print("-" * 50)
+    print(f"Admission Decision: {decision}")
+    print(f"Reason: {reason}")
+    print("=" * 60)
+    print("\nCongratulations and best wishes!")
+
+# --- Main Program ---
+if __name__ == "__main__":
+    student_name, student_gpa, student_sat, student_extra = get_student_info()
+    admission_decision, admission_reason = check_admission(student_gpa, student_sat, student_extra)
+    display_result(student_name, student_gpa, student_sat, student_extra, admission_decision, admission_reason)
+
+3.) 
+
+// Source - https://stackoverflow.com/q
+// Posted by Nithin Rajesh
+// Retrieved 2025-11-12, License - CC BY-SA 4.0
+
+/*Write a program to read 3 grades. Grades are between 0-100. Calculate the average, then print the 
+following message. */
+#include<iostream>
+
+using namespace std;
+
+void main() {
+int grade1{};
+int grade2{};
+int grade3{};
+int average{};
+int sum{};
+const char;
+
+cout << "Enter 3 grades (as a number between 0-100): " << endl;
+cin >> grade1 >> grade2 >> grade3;
+if (grade1 >= 90)
+{
+    cout << 'A' << endl;
+}
+if (grade1 <= 89)
+{
+    cout << 'B' << endl;
+}
+if (grade1 <= 79)
+{
+    cout << 'C' << endl;
+}
+if (grade1 <= 69)
+{
+    cout << 'D' << endl;
+}
+if (grade2 >= 90)
+{
+    cout << 'A' << endl;
+}
+if (grade2 <= 89)
+{
+    cout << 'B' << endl;
+}
+if (grade2 <= 79)
+{
+    cout << 'C' << endl;
+}
+if (grade2 <= 69)
+{
+    cout << 'D' << endl;
+}
+if (grade3 >= 90)
+{
+    cout << 'A' << endl;
+}
+if (grade3 <= 89)
+{
+    cout << 'B' << endl;
+}
+if (grade3 <= 79)
+{
+    cout << 'C' << endl;
+}
+if (grade3 <= 69)
+{
+    cout << 'D' << endl;
+}
+else
+    cout << 'F' << endl;
+sum = (grade1 + grade2 + grade3);
+average = (sum / 3);
+    cout << "Your average is: " << average << endl;
+    }
