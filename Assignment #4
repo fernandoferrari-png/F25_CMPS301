@@ -1,0 +1,331 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    // Declare variables to store user input
+    string name, gender;
+    int age, heightFeet, heightInches;
+    double weightInPounds;
+
+    // Ask the user to enter their information
+    cout << "Please enter your name: ";
+    getline(cin, name);
+
+    cout << "Please enter your age: ";
+    cin >> age;
+
+    cout << "Please enter your Gender (male/female): ";
+    cin.ignore(); // Ignore the newline character left in the buffer
+    getline(cin, gender);
+
+    cout << "Please enter your height in feet: ";
+    cin >> heightFeet;
+
+    cout << "Please enter your height in inches: ";
+    cin >> heightInches;
+
+    cout << "Please enter your weight in pounds: ";
+    cin >> weightInPounds;
+
+    // Calculate BMI
+    int heightInInches = (heightFeet * 12) + heightInches;
+    double bmi = (703 * weightInPounds) / (heightInInches * heightInInches);
+
+    // Determine BMI category
+    string bmiCategory;
+    if (bmi < 16) {
+        bmiCategory = "Severe Thinness";
+    } else if (bmi < 17) {
+        bmiCategory = "Moderate Thinness";
+    } else if (bmi < 18.5) {
+        bmiCategory = "Mild Thinness";
+    } else if (bmi < 25) {
+        bmiCategory = "Normal";
+    } else if (bmi < 30) {
+        bmiCategory = "Overweight";
+    } else if (bmi < 35) {
+        bmiCategory = "Obese Class I";
+    } else if (bmi < 40) {
+        bmiCategory = "Obese Class II";
+    } else {
+        bmiCategory = "Obese Class III";
+    }
+
+    // Output user information and BMI category
+    cout << "\nHi " << name << "," << endl;
+    cout << "You are a " << gender << ". You are " << age << " years old." << endl;
+    cout << "You are currently " << heightFeet << "'" << heightInches << "\" and you currently weigh " << weightInPounds << " pounds." << endl;
+    cout << "Your BMI is " << bmi << ", which is " << bmiCategory << "." << endl;
+    cout << "\nThank you for using the BMI Calculator!" << endl;
+
+    return 0;
+}
+Please enter your name: Pratik
+Please enter your age: 22
+Please enter your Gender (male/female): male
+Please enter your height in feet: 5
+Please enter your height in inches: 9
+Please enter your weight in pounds: 160
+Hi Pratik,
+You are a male. You are 22 years old.
+You are currently 5'9" and you currently weigh 154.324 pounds.
+Your BMI is 22.7872, which is Normal.
+
+Thank you for using the BMI Calculator!
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char choice;
+
+    while (true) {
+        cout << "Welcome to Birthday Date Meaning Generator!" << endl;
+        cout << "Please enter the month of your birthday: ";
+        int month;
+        cin >> month;
+
+        if (month < 1 || month > 12) {
+            cout << "Invalid month. Please enter a valid month (1-12)." << endl;
+            continue;
+        }
+
+        cout << "Please enter the day of your birthday: ";
+        int day;
+        cin >> day;
+
+        if (day < 1 || day > 31) {
+            cout << "Invalid day. Please enter a valid day (1-31)." << endl;
+            continue;
+        }
+
+        cout << "Please enter the year of your birthday (2000-2023): ";
+        int year;
+        cin >> year;
+
+        if (year < 2000 || year > 2023) {
+            cout << "Invalid year. Please enter a year between 2000 and 2023." << endl;
+            continue;
+        }
+
+        cout << "The month of ";
+        switch (month) {
+            case 1:
+                cout << "January";
+                break;
+            case 2:
+                cout << "February";
+                break;
+            // Add cases for other months here
+            default:
+                cout << "Invalid month";
+                break;
+        }
+        cout << " means ";
+
+        switch (month) {
+            case 1:
+                cout << "Janus";
+                break;
+            case 2:
+                cout << "Another meaning for February";
+                break;
+            // Add meanings for other months here
+            default:
+                cout << "Invalid month";
+                break;
+        }
+
+        cout << endl;
+
+        cout << "The " << day << " of ";
+        switch (month) {
+            case 1:
+                cout << "January";
+                break;
+            case 2:
+                cout << "February";
+                break;
+            // Add cases for other months here
+            default:
+                cout << "Invalid month";
+                break;
+        }
+        cout << " means ";
+
+        switch (day) {
+            case 1:
+                cout << "Self-Started";
+                break;
+            case 2:
+                cout << "Another meaning for day 2";
+                break;
+            // Add meanings for other days here
+            default:
+                cout << "Invalid day";
+                break;
+        }
+
+        cout << endl;
+
+        cout << "The year of " << year << " means ";
+        if (year >= 2000 && year <= 2023) {
+            cout << "that you are millennial";
+        } else {
+            cout << "Invalid year";
+        }
+
+        cout << endl;
+
+        cout << "Would you like to try another one? (Type 'N' to exit): ";
+        cin >> choice;
+        if (choice == 'N' || choice == 'n') {
+            cout << "Thanks for playing!" << endl;
+            break;
+        }
+    }
+
+    return 0;
+}
+
+#include <iostream>
+#include <cmath>
+#include <algorithm> // for max and min
+using namespace std;
+
+// Function prototypes
+double add(double a, double b);
+double subtract(double a, double b);
+double multiply(double a, double b);
+double divide(double a, double b);
+int modulo(int a, int b); // Renamed to avoid conflict
+double exponent(double base, double exp);
+double squareRoot(double value);
+double ceiling(double value);
+double absolute(double value);
+double floorValue(double value);
+double maxValue(double a, double b);
+double minValue(double a, double b);
+double logBase(double value, int base);
+
+int main() {
+    cout << "Welcome to the C++ Math Solver!" << endl;
+    cout << "Please select an operation:" << endl;
+    cout << "1: + (Addition)  2: - (Subtraction)  3: * (Multiplication)  4: / (Division)" << endl;
+    cout << "5: % (Modulus)   6: ^ (Exponent)    7: sin  8: cos  9: tan" << endl;
+    cout << "10: sqrt  11: ceil  12: abs  13: floor  14: max  15: min" << endl;
+    cout << "16: log10  17: log2  18: round" << endl;
+
+    int choice;
+    cin >> choice;
+
+    if (choice >= 1 && choice <= 6) {
+        double a, b;
+        cout << "Enter two numbers: ";
+        cin >> a >> b;
+
+        switch (choice) {
+            case 1: cout << "Result: " << add(a, b) << endl; break;
+            case 2: cout << "Result: " << subtract(a, b) << endl; break;
+            case 3: cout << "Result: " << multiply(a, b) << endl; break;
+            case 4: 
+                if (b != 0)
+                    cout << "Result: " << divide(a, b) << endl;
+                else
+                    cout << "Error: Division by zero!" << endl;
+                break;
+            case 5: 
+                if (b != 0)
+                    cout << "Result: " << modulo(static_cast<int>(a), static_cast<int>(b)) << endl;
+                else
+                    cout << "Error: Modulus by zero!" << endl;
+                break;
+            case 6: cout << "Result: " << exponent(a, b) << endl; break;
+        }
+    } else if (choice >= 7 && choice <= 9) {
+        double value;
+        cout << "Enter the value (in radians): ";
+        cin >> value;
+
+        switch (choice) {
+            case 7: cout << "Result: " << sin(value) << endl; break;
+            case 8: cout << "Result: " << cos(value) << endl; break;
+            case 9: cout << "Result: " << tan(value) << endl; break;
+        }
+    } else if (choice >= 10 && choice <= 17) {
+        double value, a, b;
+        switch (choice) {
+            case 10:
+                cout << "Enter a value: ";
+                cin >> value;
+                cout << "Result: " << squareRoot(value) << endl;
+                break;
+            case 11:
+                cout << "Enter a value: ";
+                cin >> value;
+                cout << "Result: " << ceiling(value) << endl;
+                break;
+            case 12:
+                cout << "Enter a value: ";
+                cin >> value;
+                cout << "Result: " << absolute(value) << endl;
+                break;
+            case 13:
+                cout << "Enter a value: ";
+                cin >> value;
+                cout << "Result: " << floorValue(value) << endl;
+                break;
+            case 14:
+                cout << "Enter two values: ";
+                cin >> a >> b;
+                cout << "Result: " << maxValue(a, b) << endl;
+                break;
+            case 15:
+                cout << "Enter two values: ";
+                cin >> a >> b;
+                cout << "Result: " << minValue(a, b) << endl;
+                break;
+            case 16:
+                cout << "Enter a value: ";
+                cin >> value;
+                cout << "Result: " << log10(value) << endl;
+                break;
+            case 17:
+                cout << "Enter a value: ";
+                cin >> value;
+                cout << "Result: " << logBase(value, 2) << endl;
+                break;
+        }
+    } else {
+        cout << "Invalid choice. Please restart the program." << endl;
+    }
+
+    return 0;
+}
+
+// Function definitions
+double add(double a, double b) { return a + b; }
+double subtract(double a, double b) { return a - b; }
+double multiply(double a, double b) { return a * b; }
+double divide(double a, double b) { return a / b; }
+int modulo(int a, int b) { return a % b; } // Renamed function
+double exponent(double base, double exp) { return pow(base, exp); }
+double squareRoot(double value) { return sqrt(value); }
+double ceiling(double value) { return ceil(value); }
+double absolute(double value) { return fabs(value); }
+double floorValue(double value) { return floor(value); }
+double maxValue(double a, double b) { return max(a, b); }
+double minValue(double a, double b) { return min(a, b); }
+double logBase(double value, int base) { return log(value) / log(base); }
+Welcome to the C++ Math Solver!
+Please select an operation:
+1: + (Addition)  2: - (Subtraction)  3: * (Multiplication)  4: / (Division)
+5: % (Modulus)   6: ^ (Exponent)    7: sin  8: cos  9: tan
+10: sqrt  11: ceil  12: abs  13: floor  14: max  15: min
+16: log10  17: log2  18: round
+
+Enter your choice: 1
+Enter two numbers: 12.5 7.3
+Result: 19.8
