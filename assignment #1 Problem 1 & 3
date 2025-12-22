@@ -1,0 +1,294 @@
+1.) 
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+// Function to print a separator line
+void printSeparator() {
+    std::cout << "+----------+---------------------+-----------------+--------------------------+-------------------------+-------------------+\n";
+}
+
+int main() {
+    // Header information (hardcoded)
+    std::string studentName = "Jane Doe";
+    std::string scheduleTitle = "Fall 2025 Class Schedule";
+
+    // Print header
+    std::cout << "\n";
+    std::cout << studentName << "'s " << scheduleTitle << "\n";
+    std::cout << "-----------------------------------------------------------------------------------------------------------------------\n";
+
+    // Print table headers
+    printSeparator();
+    std::cout << "| Day      | Time                | Course Code     | Course Title             | Location                | Instructor Name   |\n";
+    printSeparator();
+
+    // Class data (hardcoded as strings for demonstration)
+    // To achieve clean alignment, we use std::setw() to set the width of each column.
+
+    // Class 1: Monday, Wednesday, Friday
+    std::cout << "| " << std::setw(8) << std::left << "M/W/F"
+              << "| " << std::setw(19) << std::left << "09:00 AM - 09:50 AM"
+              << "| " << std::setw(15) << std::left << "CS 101"
+              << "| " << std::setw(24) << std::left << "Intro to Programming"
+              << "| " << std::setw(23) << std::left << "Science Hall 201"
+              << "| " << std::setw(17) << std::left << "Dr. Smith" << "|\n";
+    printSeparator();
+
+    // Class 2: Monday, Wednesday, Friday
+    std::cout << "| " << std::setw(8) << std::left << "M/W/F"
+              << "| " << std::setw(19) << std::left << "10:00 AM - 10:50 AM"
+              << "| " << std::setw(15) << std::left << "MATH 210"
+              << "| " << std::setw(24) << std::left << "Calculus III"
+              << "| " << std::setw(23) << std::left << "Math Bldg 104"
+              << "| " << std::setw(17) << std::left << "Prof. Johnson" << "|\n";
+    printSeparator();
+
+    // Class 3: Tuesday, Thursday
+    std::cout << "| " << std::setw(8) << std::left << "T/Th"
+              << "| " << std::setw(19) << std::left << "11:00 AM - 12:15 PM"
+              << "| " << std::setw(15) << std::left << "ENG 105"
+              << "| " << std::setw(24) << std::left << "Technical Writing"
+              << "| " << std::setw(23) << std::left << "Humanities 302"
+              << "| " << std::setw(17) << std::left << "Ms. Davis" << "|\n";
+    printSeparator();
+    
+    // Class 4: Monday
+    std::cout << "| " << std::setw(8) << std::left << "M"
+              << "| " << std::setw(19) << std::left << "01:00 PM - 03:45 PM"
+              << "| " << std::setw(15) << std::left << "ART 150"
+              << "| " << std::setw(24) << std::left << "Intro to Sculpture"
+              << "| " << std::setw(23) << std::left << "Art Studio 10"
+              << "| " << std::setw(17) << std::left << "Mr. Wilson" << "|\n";
+    printSeparator();
+
+    // Class 5: Wednesday
+    std::cout << "| " << std::setw(8) << std::left << "W"
+              << "| " << std::setw(19) << std::left << "02:00 PM - 04:45 PM"
+              << "| " << std::setw(15) << std::left << "HIST 202"
+              << "| " << std::setw(24) << std::left << "World History II"
+              << "| " << std::setw(23) << std::left << "Admin Bldg 112"
+              << "| " << std::setw(17) << std::left << "Dr. Brown" << "|\n";
+    printSeparator();
+
+    // Class 6: Tuesday, Thursday
+    std::cout << "| " << std::setw(8) << std::left << "T/Th"
+              << "| " << std::setw(19) << std::left << "03:00 PM - 04:15 PM"
+              << "| " << std::setw(15) << std::left << "CHEM 110"
+              << "| " << std::setw(24) << std::left << "General Chemistry"
+              << "| " << std::setw(23) << std::left << "Chem Lab 5"
+              << "| " << std::setw(17) << std::left << "Prof. Lee" << "|\n";
+    printSeparator();
+
+    return 0;
+}
+#include <iostream>
+#include <string>
+
+int main() {
+    // Header information
+    std::string studentName = "Jane Doe";
+    std::string scheduleTitle = "Official Class Schedule - Fall 2025";
+
+    // Print the header
+    std::cout << "********************************************************************************\n";
+    std::cout << studentName << "\n";
+    std::cout << scheduleTitle << "\n";
+    std::cout << "********************************************************************************\n\n";
+
+    // Print the table header
+    // Using tabs (\t) and spaces for alignment
+    std::cout << std::left << std::setw(10) << "Day" 
+              << std::setw(20) << "Time" 
+              << std::setw(15) << "Course Code" 
+              << std::setw(30) << "Course Title" 
+              << std::setw(25) << "Location" 
+              << std::setw(25) << "Instructor Name" 
+              << "\n";
+    std::cout << "------------------------------------------------------------------------------------------------------------------------------------------\n";
+
+    // Print class entries
+    // Entry 1
+    std::cout << std::left << std::setw(10) << "Mon" 
+              << std::setw(20) << "09:00 AM - 10:15 AM" 
+              << std::setw(15) << "CSCI 101" 
+              << std::setw(30) << "Intro to Computer Science" 
+              << std::setw(25) << "Main Hall, Room 101" 
+              << std::setw(25) << "Dr. Alan Turing" 
+              << "\n";
+
+    // Entry 2
+    std::cout << std::left << std::setw(10) << "Mon" 
+              << std::setw(20) << "10:30 AM - 11:45 AM" 
+              << std::setw(15) << "MATH 210" 
+              << std::setw(30) << "Calculus II" 
+              << std::setw(25) << "Science Bld, Room 204" 
+              << std::setw(25) << "Prof. Ada Lovelace" 
+              << "\n";
+              
+    // Entry 3
+    std::cout << std::left << std::setw(10) << "Wed" 
+              << std::setw(20) << "09:00 AM - 10:15 AM" 
+              << std::setw(15) << "CSCI 101" 
+              << std::setw(30) << "Intro to Computer Science" 
+              << std::setw(25) << "Main Hall, Room 101" 
+              << std::setw(25) << "Dr. Alan Turing" 
+              << "\n";
+
+    // Entry 4
+    std::cout << std::left << std::setw(10) << "Wed" 
+              << std::setw(20) << "01:00 PM - 02:15 PM" 
+              << std::setw(15) << "ENG 102" 
+              << std::setw(30) << "College Writing" 
+              << std::setw(25) << "Humanities Ctr, Room 3A" 
+              << std::setw(25) << "Dr. Jane Austen" 
+              << "\n";
+              
+    // Entry 5
+    std::cout << std::left << std::setw(10) << "Thu" 
+              << std::setw(20) << "10:30 AM - 11:45 AM" 
+              << std::setw(15) << "MATH 210" 
+              << std::setw(30) << "Calculus II" 
+              << std::setw(25) << "Science Bld, Room 204" 
+              << std::setw(25) << "Prof. Ada Lovelace" 
+              << "\n";
+
+    // Entry 6
+    std::cout << std::left << std::setw(10) << "Fri" 
+              << std::setw(20) << "09:00 AM - 11:45 AM" 
+              << std::setw(15) << "ART 150" 
+              << std::setw(30) << "Intro to Art History" 
+              << std::setw(25) << "Fine Arts Bld, Room 10" 
+              << std::setw(25) << "Dr. Vincent Gogh" 
+              << "\n";
+
+
+    // Footer
+    std::cout << "\n********************************************************************************\n";
+    std::cout << "End of Schedule\n";
+    std::cout << "********************************************************************************\n";
+
+    return 0;
+}
+
+3.) 
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+int main() {
+    // 1. Declare variables
+    // Income
+    double monthly_income = 4000.00;
+
+    // Expenses (using both int and double for practice)
+    double rent = 1500.00;
+    double groceries = 600.00;
+    double utilities = 250.00;
+    int transportation = 150;
+    int entertainment = 200;
+
+    // Totals, leftovers, and savings
+    double total_expenses;
+    double leftovers;
+    double savings_goal_percent = 0.10; // 10% savings goal
+    double savings_contribution;
+    double final_leftovers;
+
+    // 3. Perform calculations
+    total_expenses = rent + groceries + utilities + transportation + entertainment;
+    leftovers = monthly_income - total_expenses;
+    savings_contribution = leftovers * savings_goal_percent;
+    final_leftovers = leftovers - savings_contribution;
+
+    // 4. Display the results in a structured format with output formatting
+    // Set output to fixed decimal notation with two decimal places for currency
+    std::cout << std::fixed << std::setprecision(2);
+
+    std::cout << "--------------------------------------" << std::endl;
+    std::cout << "         MONTHLY BUDGET BREAKDOWN     " << std::endl;
+    std::cout << "--------------------------------------" << std::endl;
+    std::cout << "INCOME:                               $" << std::setw(10) << monthly_income << std::endl;
+    std::cout << std::endl;
+    std::cout << "EXPENSES: " << std::endl;
+    std::cout << "  Rent                              $" << std::setw(10) << rent << std::endl;
+    std::cout << "  Groceries                         $" << std::setw(10) << groceries << std::endl;
+    std::cout << "  Utilities                         $" << std::setw(10) << utilities << std::endl;
+    std::cout << "  Transportation                    $" << std::setw(10) << static_cast<double>(transportation) << std::endl;
+    std::cout << "  Entertainment                     $" << std::setw(10) << static_cast<double>(entertainment) << std::endl;
+    std::cout << "--------------------------------------" << std::endl;
+    std::cout << "TOTAL EXPENSES:                     $" << std::setw(10) << total_expenses << std::endl;
+    std::cout << "LEFTOVERS (Before Savings):         $" << std::setw(10) << leftovers << std::endl;
+    std::cout << std::endl;
+    std::cout << "SAVINGS CONTRIBUTION (" << savings_goal_percent * 100 << "%): $" << std::setw(10) << savings_contribution << std::endl;
+    std::cout << "--------------------------------------" << std::endl;
+    std::cout << "FINAL LEFTOVERS:                    $" << std::setw(10) << final_leftovers << std::endl;
+    std::cout << "--------------------------------------" << std::endl;
+
+    return 0;
+}
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+int main() {
+    // 1. Declare variables
+    double paycheck = 3500.00;          // Monthly take-home pay
+    double rent_expense = 1200.00;      // Rent expense
+    double groceries_expense = 500.00;  // Groceries expense
+    double utilities_expense = 250.00;  // Utilities (electricity, water, etc) expense
+    double car_payment_expense = 350.00; // Car payment expense
+    double insurance_expense = 180.00;  // Car and health insurance expense
+    double other_expenses = 120.00;     // Miscellaneous expenses (e.g., entertainment)
+    double percentage_to_save = 0.20;   // 20% of remaining balance to save (20/100 = 0.20)
+
+    // Variables for calculated values
+    double total_expenses;
+    double remaining_balance;
+    double amount_to_save;
+    double final_amount_left_to_spend;
+
+    // 2. Calculate totals using arithmetic operators
+    // Total expenses: add up all the categories
+    total_expenses = rent_expense + groceries_expense + utilities_expense + car_payment_expense + insurance_expense + other_expenses;
+
+    // Remaining balance: paycheck minus total expenses
+    remaining_balance = paycheck - total_expenses;
+
+    // Amount to save: use percentage * remaining balance
+    amount_to_save = percentage_to_save * remaining_balance;
+
+    // Final amount left to spend: remaining balance - savings
+    final_amount_left_to_spend = remaining_balance - amount_to_save;
+
+    // 3. Display all values in a neat, aligned format using cout
+    // Use iomanip functions for formatting:
+    // fixed: use decimal notation for floating-point numbers
+    // setprecision(2): set the number of digits after the decimal point to 2
+    // left/right: alignment
+    // setw(20): set field width to 20
+
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << "--- Monthly Budget Breakdown ---" << std::endl;
+    std::cout << std::left << std::setw(25) << "Paycheck Amount:" << std::right << std::setw(10) << paycheck << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+
+    std::cout << std::left << std::setw(25) << "Expenses:" << std::endl;
+    std::cout << std::left << std::setw(25) << "  Rent:" << std::right << std::setw(10) << rent_expense << std::endl;
+    std::cout << std::left << std::setw(25) << "  Groceries:" << std::right << std::setw(10) << groceries_expense << std::endl;
+    std::cout << std::left << std::setw(25) << "  Utilities:" << std::right << std::setw(10) << utilities_expense << std::endl;
+    std::cout << std::left << std::setw(25) << "  Car Payment:" << std::right << std::setw(10) << car_payment_expense << std::endl;
+    std::cout << std::left << std::setw(25) << "  Insurance:" << std::right << std::setw(10) << insurance_expense << std::endl;
+    std::cout << std::left << std::setw(25) << "  Other Expenses:" << std::right << std::setw(10) << other_expenses << std::endl;
+    std::cout << std::left << std::setw(25) << "Total Expenses:" << std::right << std::setw(10) << total_expenses << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+
+    std::cout << std::left << std::setw(25) << "Remaining Balance:" << std::right << std::setw(10) << remaining_balance << std::endl;
+    std::cout << std::left << std::setw(25) << "Savings Goal (" << (percentage_to_save * 100) << "%):" << std::right << std::setw(10) << amount_to_save << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+
+    std::cout << std::left << std::setw(25) << "Final Amount to Spend:" << std::right << std::setw(10) << final_amount_left_to_spend << std::endl;
+
+    return 0;
+}
+
