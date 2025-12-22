@@ -1,0 +1,86 @@
+""
+College Admission Eligibility Checker
+------------------------------------
+Determines if a student qualifies for admission to a fictional college
+based on GPA, SAT score, and extracurricular activities.
+"""
+
+def get_valid_gpa():
+    """Prompts user for a valid GPA between 0.0 and 4.0."""
+    while True:
+        try:
+            gpa = float(input("Enter GPA (0.0 - 4.0): "))
+            if 0.0 <= gpa <= 4.0:
+                return gpa
+            else:
+                print("Error: GPA must be between 0.0 and 4.0. Please try again.")
+        except ValueError:
+            print("Error: Invalid input. Please enter a numerical value for GPA.")
+
+def get_valid_sat():
+    """Prompts user for a valid SAT score between 0 and 1600."""
+    while True:
+        try:
+            sat = int(input("Enter SAT score (out of 1600): "))
+            if 0 <= sat <= 1600:
+                return sat
+            else:
+                print("Error: SAT score must be between 0 and 1600. Please try again.")
+        except ValueError:
+            print("Error: Invalid input. Please enter an integer value for SAT score.")
+
+def get_valid_extracurriculars():
+    """Prompts user for extracurricular participation (Y/N)."""
+    while True:
+        activities = input("Participated in extracurriculars? (Y/N): ").strip().upper()
+        if activities in ['Y', 'N']:
+            return activities == 'Y'
+        else:
+            print("Error: Invalid input. Please enter 'Y' or 'N'.")
+
+def main():
+    """Main function to run the admission checker program."""
+    print("****** Welcome to the College Admission Checker ******")
+
+    # 1. Prompt the user for input
+    name = input("Enter student name: ").strip().capitalize()
+    gpa = get_valid_gpa()
+    sat = get_valid_sat()
+    has_extracurriculars = get_valid_extracurriculars()
+
+    # 2. Determine admission eligibility and reason
+    is_accepted = False
+    reason = "Did not meet minimum requirements."
+
+    # Criteria 1: Admit if GPA ≥ 3.5 and SAT ≥ 1200
+    if gpa >= 3.5 and sat >= 1200:
+        is_accepted = True
+        reason = "Qualified based on high GPA and SAT scores."
+    # Criteria 2: Or if GPA ≥ 3.0 and SAT ≥ 1000 and participated in extracurriculars
+    elif gpa >= 3.0 and sat >= 1000 and has_extracurriculars:
+        is_accepted = True
+        reason = "Qualified based on GPA, SAT, and extracurriculars."
+    
+    decision = "ACCEPTED" if is_accepted else "NOT ELIGIBLE"
+    extracurriculars_display = "Yes" if has_extracurriculars else "No"
+
+    # 3. Display decision with clean formatting
+    print("\n============== ADMISSION RESULT ==============")
+    print(f"Student Name: {name}")
+    # Format GPA to two decimal places
+    print(f"GPA: {gpa:.2f}")
+    print(f"SAT Score: {sat}")
+    print(f"Extracurriculars: {extracurriculars_display}")
+    print("---------------------------------------------")
+    print(f"Admission Decision: {decision}")
+    print(f"Reason: {reason}")
+    print("=============================================")
+    
+    if is_accepted:
+        print("Congratulations and best wishes!")
+    else:
+        print("Thank you for using the admission checker.")
+
+if __name__ == "__main__":
+    # Ensures the main function runs when the script is executed
+    main()
